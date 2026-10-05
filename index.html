@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>智智编程助手</title>
 <style>
 body{margin:0;font-family:Microsoft YaHei;background:#f5f9ff;color:#22324b}
@@ -16,7 +17,7 @@ h2{text-align:center}
 .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#2f6fed;color:white;align-items:center;justify-content:center;font-weight:bold}
 .tip{text-align:center;background:#eef5ff;padding:15px;border-radius:15px;margin:20px}
 .start{text-align:center}
-button{background:#2f6fed;color:white;border:0;border-radius:30px;padding:15px 55px;font-size:18px}
+.btn{display:inline-block;background:#2f6fed;color:white;border:0;border-radius:30px;padding:15px 55px;font-size:18px;text-decoration:none}
 .footer{text-align:center;color:#999;margin-top:25px}
 @media(max-width:700px){.steps{grid-template-columns:1fr}}
 </style>
@@ -28,7 +29,6 @@ button{background:#2f6fed;color:white;border:0;border-radius:30px;padding:15px 5
 <h1>智智编程助手</h1>
 <p>遇到困难不可怕，我们一起把它变成学习的机会。</p>
 </div>
-
 <div class="panel">
 <h2>使用说明</h2>
 <div class="steps">
@@ -37,31 +37,10 @@ button{background:#2f6fed;color:white;border:0;border-radius:30px;padding:15px 5
 <div class="step"><span class="num">3</span><h3>选择学习阶段</h3><p>选择识别目标、结对探索或反思迭代。</p></div>
 <div class="step"><span class="num">4</span><h3>开始交流</h3><p>和智智编程助手交流问题。</p></div>
 </div>
-
 <div class="tip">两位同学使用同一台设备即可。</div>
-
-<div class="start">
-<button id="startBtn">开始学习</button>
-</div>
-
+<div class="start"><a class="btn" href="./chat.html">开始学习</a></div>
 </div>
 <div class="footer">课堂学习工具 · 智智编程助手</div>
 </div>
-
-<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
-<script>
-const client = new CozeWebSDK.WebChatClient({
- config:{bot_id:'7689382481694588971'},
- componentProps:{title:'智智编程助手'},
- auth:{
-  type:'token',
-  token:'pat_B2NZi9aBTOYo4dwQbcVr99G7CNFIud58wIViQeFJOX5DWqlmBWfNIHa6KoHtZdrZ',
-  onRefreshToken:function(){return 'pat_B2NZi9aBTOYo4dwQbcVr99G7CNFIud58wIViQeFJOX5DWqlmBWfNIHa6KoHtZdrZ'}
- }
-});
-document.getElementById('startBtn').onclick=function(){
- alert("按钮正常");
-}
-</script>
 </body>
 </html>
