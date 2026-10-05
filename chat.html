@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>智智编程助手｜学习对话</title>
+<style>
+html,body{margin:0;width:100%;height:100%;font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:#f5f9ff}
+.page{height:100vh;display:flex;flex-direction:column}
+.topbar{height:56px;flex:0 0 56px;background:#2f6fed;color:#fff;display:flex;align-items:center;padding:0 22px;font-size:18px;font-weight:700}
+.back{color:#fff;text-decoration:none;margin-right:18px;font-size:14px;font-weight:400}
+#chat{flex:1;min-height:0;width:100%}
+.notice{position:fixed;left:50%;top:70px;transform:translateX(-50%);background:#fff3cd;color:#6b5600;padding:10px 14px;border-radius:10px;z-index:9999;font-size:13px;display:none}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a class="back" href="./index.html">← 返回</a>
+    智智编程助手
+  </div>
+  <div id="chat"></div>
+</div>
+<div id="notice" class="notice">请先在 chat.html 中把 YOUR_PAT 替换为你自己的 PAT。</div>
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+<script>
+const PAT = 'pat_B2NZi9aBTOYo4dwQbcVr99G7CNFIud58wIViQeFJOX5DWqlmBWfNIHa6KoHtZdrZ';
+if (PAT === 'pat_B2NZi9aBTOYo4dwQbcVr99G7CNFIud58wIViQeFJOX5DWqlmBWfNIHa6KoHtZdrZ') {
+  document.getElementById('notice').style.display = 'block';
+}
+new CozeWebSDK.WebChatClient({
+  config: {
+    type: 'bot',
+    bot_id: '7689382481694588971',
+    isIframe: false
+  },
+  componentProps: {
+    title: '智智编程助手',
+    lang: 'zh-CN'
+  },
+  auth: {
+    type: 'token',
+    token: PAT,
+    onRefreshToken: async function () {
+      return PAT;
+    }
+  },
+  ui: {
+    asstBtn: {
+      isNeed: false
+    }
+  },
+  el: document.getElementById('chat')
+});
+</script>
+</body>
+</html>
